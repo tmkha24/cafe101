@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<!-- title -->
-					<div class="row mb-4">
+					<div class="row mb-3">
 						<div class="col-12 text-center">
 							<h2>
 								<strong><?php echo __('INVOICE') ?></strong>
@@ -51,7 +51,7 @@
 						</div>
 					</div>
 					<!-- invoice information -->
-					<div class="row mb-5">
+					<div class="row mb-3">
 						<div class="col-6">
 							<table class="float-left">
 								<!-- address -->
@@ -210,8 +210,8 @@
 										<td class="p-1 border-0"><?php echo __('（港產）陳皮梅330G ') ?><br><?php echo __(' 規格：330G X 24') ?></td>
 										<td class="p-1 border-0"><?php echo __('贈送5') ?></td>
 										<td class="p-1 border-0"><?php echo __('120包') ?></td>
-										<td class="p-1 border-0 text-right"><?php echo __('15.8000') ?></td>
-										<td class="p-1 border-0 text-right"><?php echo __('18,201.60') ?></td>
+										<td class="p-1 border-0 text-right"><?php echo __('0.0000') ?></td>
+										<td class="p-1 border-0 text-right"><?php echo __('0.00') ?></td>
 									</tr>
 									<tr>
 										<td class="p-1 border-0"><?php echo __('3') ?></td>
@@ -270,8 +270,7 @@
 									
 									<!-- tax, discount, etc... -->
 									<tr>
-										<td class="border-0" colspan="6"></td>
-										<td class="border-0 text-right"><?php echo __('已扣4％折扣') ?></td>
+										<td class="p-1 border-0 text-right" colspan="7"><?php echo __('已扣4％折扣') ?></td>
 									</tr>
 								</tbody>
 							</table>
