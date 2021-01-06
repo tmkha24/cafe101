@@ -25,7 +25,7 @@
 					<div class="row mb-4 ml-3 mr-3">
 						<!-- logo -->
 						<div class="col-2">
-							<?php echo $this->Html->image('/img/logo/logo.png') ?>
+							<?php echo $this->Html->image('/img/logo/logo_invocie1.png', array("class" => "img-fluid")) ?>
 						</div>
 						<div class="col-10 text-center">
 							<h2>
