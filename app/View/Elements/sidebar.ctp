@@ -320,6 +320,52 @@
 						</p>
 					</a>
 				</li>
+
+				<li class="nav-header">
+					<?php echo __('Charts') ?>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'charts', 'action' => 'salesperformance')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-chart-line"></i>
+						<p>
+							<?php echo __('Sales Performance Chart') ?>
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'charts', 'action' => 'monthlysales')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-chart-line"></i>
+						<p>
+							<?php echo __('Monthly Sales') ?>
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'charts', 'action' => 'analysisdiagram')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-chart-line"></i>
+						<p>
+							<?php echo __('Analysis diagram') ?>
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'charts', 'action' => 'salesquota')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-chart-line"></i>
+						<p>
+							<?php echo __('Sales quota') ?>
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'charts', 'action' => 'membershipheadcountquota')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-chart-line"></i>
+						<p>
+							<?php echo __('Membership Quota') ?>
+						</p>
+					</a>
+				</li>
+
+
 				<li class="nav-header">
 					<?php echo __('Setting') ?>
 				</li>

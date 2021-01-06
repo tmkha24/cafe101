@@ -203,7 +203,7 @@
 										<td class="border-0">1200包</td>
 										<td class="border-0 text-right">15.8000</td>
 										<td class="border-0 text-right">18,201.60</td>
-									</tr>									
+									</tr>
 									<tr>
 										<td class="border-0">2</td>
 										<td class="border-0">4892788668017</td>
@@ -212,6 +212,15 @@
 										<td class="border-0">120包</td>
 										<td class="border-0 text-right">0.0000</td>
 										<td class="border-0 text-right">0.00</td>
+									</tr>
+									<tr>
+										<td class="border-0">2</td>
+										<td class="border-0">4892788668055</td>
+										<td class="border-0">（港產）陳皮應子300G <br /> 規格：300G X 24</td>
+										<td class="border-0">40</td>
+										<td class="border-0">960包</td>
+										<td class="border-0 text-right">15.8000</td>
+										<td class="border-0 text-right">14,561.28</td>
 									</tr>
 									<!-- tax, discount, etc... -->
 									<tr>
@@ -229,6 +238,7 @@
 					<div class="row">
 						<div class="col pl-5">
 							55件一(DF-100224)港產陳皮梅330G生產日期：2020/9/10-2022/3/9
+							<br> 40件一(DF-100225)港產陳皮應子300G生產日期：2020/9/10-2022/3/9
 						</div>
 					</div>
 
@@ -236,7 +246,7 @@
 					<div class="row">
 						<div class="col-8"></div>
 						<div class="col pl-5 text-right">
-							總額(HKD) 61,885.44
+							總額(HKD) 32,762.88
 						</div>
 					</div>
 					

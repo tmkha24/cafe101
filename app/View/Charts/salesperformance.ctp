@@ -16,7 +16,11 @@
 </section>
 
 <section class="content">
-	<div id="chart_container" style="width: 700px; height: 300px">
+	<div class="card">
+		<div class="text-center mt-3">
+			<div id="chart_container" style="width: 900px;">
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -24,7 +28,43 @@
 <?php
 echo $this->Html->script('/crm/plugins/apexcharts-bundle/apexcharts.min.js');
 ?>
+
 <script>
+	var options = {
+		chart: {
+			type: 'line',
+			toolbar: {
+				show: false
+			},
+			zoom: {
+				enabled: false
+			}
+		},
+		title: {
+          text: '2020 Sales performance',
+          align: 'center'
+        },
+		dataLabels: {
+          enabled: true,
+        },
+		colors: ['#ffdd00'],
+		series: [
+			{
+				name: 'Profit',
+				data: [3000,4000,3500,5000,4900,6000,7000,9100,8700]
+			}
+		],
+		xaxis: {
+			categories: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep']
+		}
+	}
+
+	var chart = new ApexCharts(document.getElementById("chart_container"), options);
+	chart.render();
+</script>
+
+
+<!-- <script>
 	var options = {
 	chart: {
 		type: 'line',
@@ -53,4 +93,4 @@ echo $this->Html->script('/crm/plugins/apexcharts-bundle/apexcharts.min.js');
 
 	var chart = new ApexCharts(document.getElementById("chart_container"), options);
 	chart.render();
-</script>
+</script> -->

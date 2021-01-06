@@ -12,9 +12,8 @@ class ChartsController extends AppController
 	 *
 	 * @return void
 	 */
-	public function salesperformace()
+	public function salesperformance()
 	{
-		
 	}
 
 	public function monthlysales()
