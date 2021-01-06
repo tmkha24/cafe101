@@ -1,0 +1,4 @@
+msgid "entries"
+msgstr "entries a"
+msgid "Notifications"
+msgstr "Informations"
