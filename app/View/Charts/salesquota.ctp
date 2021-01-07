@@ -53,15 +53,15 @@ echo $this->Html->script('/crm/plugins/apexcharts-bundle/apexcharts.min.js');
 		series: [
 			{
 				name: 'Sales',
-				data: [3000,4000,3500,5000,4900,6000,7000,9100,8700]
+				data: [3000,4000,3500,5000,4900,6000,7000,9100,8700,8900,9200,9500]
 			},
 			{
 				name: 'Quota',
-				data: [4000,4500,5000,5500,6000,6500,7000,7500,8000]
+				data: [4000,4500,5000,5500,6000,6500,7000,7500,8000,8200,8500,8700]
 			}
 		],
 		xaxis: {
-			categories: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep']
+			categories: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dev']
 		}
 	}
 

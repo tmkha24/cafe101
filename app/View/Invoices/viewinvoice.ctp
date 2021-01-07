@@ -178,13 +178,13 @@
 							<table class="table text-center">
 								<thead>
 									<tr>
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('舟號') ?></th>
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('貨物型號') ?></th> <!-- product model-->
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('貨物名稱') ?></th> <!-- product name-->
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('件數') ?></th> <!-- note -->
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('數量') ?></th> <!-- quantity + unit-->
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('單價') ?></th> <!-- price -->
-										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo _('總價') ?></th> <!-- subtotal -->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('舟號') ?></th>
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('貨物型號') ?></th> <!-- product model-->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('貨物名稱') ?></th> <!-- product name-->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('件數') ?></th> <!-- note -->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('數量') ?></th> <!-- quantity + unit-->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('單價') ?></th> <!-- price -->
+										<th class="p-0 border border-left-0 border-right-0 border-dark"><?php echo __('總價') ?></th> <!-- subtotal -->
 									</tr>
 								</thead>
 								<tbody>
