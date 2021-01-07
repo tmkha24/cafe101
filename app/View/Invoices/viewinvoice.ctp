@@ -293,14 +293,14 @@
 					<div class="row">
 						<div class="col-8"></div>
 						<div class="col text-right">
-							<?php echo _('付款方式總額') ?> <?php echo __('(HKD)') ?> <?php echo __('61,885.44') ?>
+							<?php echo __('付款方式總額') ?> <?php echo __('(HKD)') ?> <?php echo __('61,885.44') ?>
 						</div>
 					</div>
 
 					<!-- invoice creator -->
 					<div class="row mb-3">
 						<div class="col pl-4">
-							<?php echo _('開發票人：') ?> <?php echo __('黃小姐') ?>
+							<?php echo __('開發票人：') ?> <?php echo __('黃小姐') ?>
 						</div>
 					</div>
 
