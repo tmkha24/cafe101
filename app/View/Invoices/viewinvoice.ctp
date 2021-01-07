@@ -32,7 +32,7 @@
 								<?php echo __('華泰興食品皋之興有皐全司') ?>
 							</h2>
 							<h2>
-								<?php echo __('WAR TAI HING FOODS MANUFACTORY LIMITED') ?>
+								<?php echo __('WAH TAI HING FOODS MANUFACTORY LIMITED') ?>
 							</h2>
 							<div>
 								<?php echo __('香港新界粉嶺安樂村安全街33號豐盈工貿中心3樓N-0室') ?>
