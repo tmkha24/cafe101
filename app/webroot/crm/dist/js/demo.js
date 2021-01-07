@@ -422,4 +422,8 @@
     $('.product-image-thumb.active').removeClass('active');
     $(this).addClass('active');
   });
+
+  $.each($('input[type="file"]'), function(i, o){ 
+    $(o).val('');
+  })
 })(jQuery)
