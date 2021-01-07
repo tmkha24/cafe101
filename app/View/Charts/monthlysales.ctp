@@ -59,7 +59,7 @@ echo $this->Html->script('/crm/plugins/apexcharts-bundle/apexcharts.min.js');
             }
         ],
 		xaxis: {
-			categories: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dev']
+			categories: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec']
 		}
 	}
 
