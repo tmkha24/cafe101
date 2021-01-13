@@ -54,7 +54,7 @@
 								foreach ($invoices as $invoice): ?>
 									<tr>
 										<td><?php echo h($invoice['Invoice']['id']); ?></td>
-										<td><?php echo $this->Html->link(h($invoice['Invoice']['number']), array('action' => 'view', $invoice['Invoice']['id'])); ?></td>
+										<td><?php echo $this->Html->link(h($invoice['Invoice']['number']), array('action' => 'viewinvoice', $invoice['Invoice']['id'])); ?></td>
 										<td><?php echo h($invoice['Invoice']['created']); ?></td>
 										<td><?php echo h($invoice['Invoice']['shipping_contact_name']); ?></td>
 										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['amount']); ?></td>

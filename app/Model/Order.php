@@ -40,7 +40,12 @@ class Order extends AppModel {
 			),
 		)
 	);
-	public $hasOne = 'Invoice';
+	// public $hasOne = 'Invoice';
+	public $hasOne = array(
+		'Invoice' => array(
+			'className' => 'Invoice',
+			'conditions'   => 'Order.id = Invoice.order_id',
+	));
 	public $hasMany = array(
 		'OrderItem' => array(
 			'className' => 'OrderItem',

@@ -51,12 +51,17 @@ class InvoicesController extends AppController
 		if (!$this->Invoice->exists()) {
 			throw new NotFoundException(__('Invalid invoice'));
 		}
-		$this->set('invoice', $this->Invoice->read(null, $id));
+		$invoice = $this->Invoice->read(null, $id);
+		$this->set('invoice', $invoice);
 		$invoiceItems = $this->InvoiceItem->find('all', array(
 			'conditions'=>array('invoice_id'=>$id),
 			'order'=> array('InvoiceItem.product_id')
 		));
-		$this->set(compact( 'invoiceItems'));
+		$this->set(compact( 'invoiceItems'));		
+		$order = $this->Order->find('all', array(
+			'conditions'=>array('Order.id'=>$invoice['Invoice']['order_id'])
+		));
+		$this->set(compact( 'order'));
 	}
 
 	/**

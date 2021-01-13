@@ -19,7 +19,42 @@
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-6">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title"><?php echo __('Shipping Address'); ?></h3>
+
+						<div class="card-tools">
+							<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+								<i class="fas fa-minus"></i></button>
+						</div>
+					</div>
+					<div class="card-body">
+						<fieldset>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_address1', array("class" => "form-control shipping_address", "label" => __("Address"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_address2', array("class" => "form-control shipping_address", "label" => __("Address 2"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_company_name', array("class" => "form-control shipping_address", "label" => __("Company Name"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_contact_name', array("class" => "form-control shipping_address", "label" => __("Contact Name"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_contact_phone', array("class" => "form-control shipping_address", "label" => __("Contact Phone"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('shipping_contact_fax', array("class" => "form-control shipping_address", "label" => __("Contact Fax"))); ?>
+							</div>
+						</fieldset>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-6">
 				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title"><?php echo __('General'); ?></h3>
@@ -30,13 +65,6 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<div class="row">
-							<div class="col-12">
-								<ol class="float-sm-right">
-									<?php echo $this->Html->link($this->Html->image('tr/Companies.png') . " " . __('View Invoice List'), array('action' => 'index'), array('escape' => false)); ?>
-								</ol>
-							</div>
-						</div>
 						<fieldset>
 							<div class="form-group">
 								<?php echo $this->Form->input('number', array("class" => "form-control", "label" => __("Invoice No"))); ?>
@@ -76,7 +104,7 @@
 							</div>
 
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<?php
 								echo $this->Form->input('status', array(
 									'options' => array(
@@ -88,15 +116,6 @@
 									"label" => __("Status")
 								));
 								?>
-							</div>
-							<!-- <div class="form-group">
-								<label><?php echo  "Date Expired" ?> </label>
-								<div class="input-group date" id="reservationdate" data-target-input="nearest">
-									<input type="text" name="data[Invoice][date_expired]" class="form-control datetimepicker-input" data-target="#reservationdate" />
-									<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-										<div class="input-group-text"><i class="fa fa-calendar"></i></div>
-									</div>
-								</div>
 							</div> -->
 							<div class="form-group">
 								<?php
@@ -114,56 +133,14 @@
 								<?php echo $this->Form->input('salesperson_name', array("value" => $invoice['Invoice']['salesperson_name'], "class" => "form-control", "label" => __("Salesperson"))); ?>
 							</div>
 							<div class="form-group">
+								<label for="InvoicePaymentInformation">Payment Information</label>
+								<input type="text" value="<?php echo $invoice['Invoice']['payment_information'] ;?>" name="data[Invoice][payment_information]" class="form-control" id="InvoicePaymentInformation" />
+							</div>
+							<div class="form-group">
 								<?php echo $this->Form->input('invoice_createdby_name', array("value" => $invoice['Invoice']['invoice_createdby_name'], "class" => "form-control", "label" => __("Billing person"))); ?>
 							</div>
-							<!-- <div class="form-group">
-								<?php echo $this->Form->input('description', array("class" => "form-control", "label" => __("Note"))); ?>
-							</div> -->
 						</fieldset>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="card-title"><?php echo __('Shipping Address'); ?></h3>
-
-						<div class="card-tools">
-							<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-								<i class="fas fa-minus"></i></button>
-						</div>
-					</div>
-					<div class="card-body">
-						<fieldset>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_company_name', array("class" => "form-control shipping_address", "label" => __("Company Name"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_contact_name', array("class" => "form-control shipping_address", "label" => __("Contact Name"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_contact_phone', array("class" => "form-control shipping_address", "label" => __("Contact Phone"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_contact_fax', array("class" => "form-control shipping_address", "label" => __("Contact Fax"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_contact_email', array("class" => "form-control shipping_address", "label" => __("Contact Email"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_address1', array("class" => "form-control shipping_address", "label" => __("Address"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('shipping_address2', array("class" => "form-control shipping_address", "label" => __("Address Continue"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('payment_information', array("class" => "form-control", "label" => __("Payment Information"))); ?>
-							</div>
-						</fieldset>
-					</div>
-
 				</div>
 			</div>
 		</div>
@@ -226,10 +203,10 @@
 								<tr>
 									<th style="width: 10px">#</th>
 									<th>Name</th>
-									<th>Pieces</th>
-									<th>Qty</th>
 									<th>Note</th>
-									<th>List Price</th>
+									<th>Qty</th>
+									<th>Pieces</th>
+									<!-- <th>List Price</th> -->
 									<th>Unit Price</th>
 									<th>Amount</th>
 									<th></th>
@@ -245,10 +222,10 @@
 											<input value="<?php echo $invoiceItem['name'] ?>" type="text" class="form-control s_name" id="s_name" name="data[Invoice][items][<?php echo $i ?>][name]" data-id="<?php echo $i ?>">
 											<input value="<?php echo $invoiceItem['product_id'] ?>" type="hidden" name="data[Invoice][items][<?php echo $i ?>][product_id]" />
 										</td>
-										<td><input value="<?php echo $invoiceItem['piece'] ?>" type="text" class="form-control s_piece" id="s_piece" name="data[Invoice][items][<?php echo $i ?>][piece]" data-id="<?php echo $i ?>"></td>
-										<td><input value="<?php echo $invoiceItem['qty'] ?>" type="text" class="form-control s_qty" id="s_qty" name="data[Invoice][items][<?php echo $i ?>][qty]" data-id="<?php echo $i ?>"></td>
 										<td><input value="<?php echo $invoiceItem['note'] ?>" type="text" class="form-control s_note" id="s_note" name="data[Invoice][items][<?php echo $i ?>][note]" data-id="<?php echo $i ?>"></td>
-										<td><input value="<?php echo $invoiceItem['list_price'] ?>" type="text" class="form-control s_list_price" id="s_list_price" name="data[Invoice][items][<?php echo $i ?>][list_price]" data-id="<?php echo $i ?>"></td>
+										<td><input value="<?php echo $invoiceItem['qty'] ?>" type="text" class="form-control s_qty" id="s_qty" name="data[Invoice][items][<?php echo $i ?>][qty]" data-id="<?php echo $i ?>"></td>
+										<td><input value="<?php echo $invoiceItem['piece'] ?>" type="text" class="form-control s_piece" id="s_piece" name="data[Invoice][items][<?php echo $i ?>][piece]" data-id="<?php echo $i ?>"></td>
+										<!-- <td><input value="<?php echo $invoiceItem['list_price'] ?>" type="text" class="form-control s_list_price" id="s_list_price" name="data[Invoice][items][<?php echo $i ?>][list_price]" data-id="<?php echo $i ?>"></td> -->
 										<td><input value="<?php echo $invoiceItem['unit_price'] ?>" type="text" class="form-control s_unit_price" id="s_unit_price" name="data[Invoice][items][<?php echo $i ?>][unit_price]" data-id="<?php echo $i ?>"></td>
 										<td><input value="<?php echo $invoiceItem['amount'] ?>" type="text" class="form-control s_amount" id="s_amount" name="data[Invoice][items][<?php echo $i ?>][amount]" data-id="<?php echo $i ?>"></td>
 										<td><a class="del-service" href="#" title="Click to remove this entry">X</a></td>
@@ -288,11 +265,6 @@
 											<input value="<?php echo $invoice['Invoice']['product_discount_percent']; ?>" name="data[Invoice][product_discount_percent]" data-type="currency" value="0" class="form-control" step="1" type="number" id="invoicediscountpercent">
 										</td>
 									</tr>
-									<!-- <tr>
-										<th><?php echo __('Shipping Cost:'); ?></th>
-										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>
-										<td><input value="<?php echo $invoice['Invoice']['shipping_cost']; ?>" name="data[Invoice][shipping_cost]" class="form-control" step="1" type="number" id="invoiceshippingcost"></td>
-									</tr> -->
 									<tr>
 										<th><?php echo __('Total:'); ?></th>
 										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>
@@ -362,10 +334,10 @@
 			// $row.append($("<td>").html("<span>"+$("#s_name").val()+"</span>"+"<span class='d-none'>"+$("#s_name").clone()+"</span>"));
 			// $row.append($("<td>").html("<span>"+$("#s_qty").val()+"</span>"));
 			$row.append($("<td>").html($("#s_name").clone().removeClass('d-none')).append($("#s_product_id").clone()));
-			$row.append($("<td>").html($("#s_piece").clone().removeClass('d-none')));
-			$row.append($("<td>").html($("#s_qty").clone().removeClass('d-none')));
 			$row.append($("<td>").html($("#s_note").clone().removeClass('d-none')));
-			$row.append($("<td>").html($("#s_list_price").clone().removeClass('d-none')));
+			$row.append($("<td>").html($("#s_qty").clone().removeClass('d-none')));
+			$row.append($("<td>").html($("#s_piece").clone().removeClass('d-none')));
+			// $row.append($("<td>").html($("#s_list_price").clone().removeClass('d-none')));
 			$row.append($("<td>").html($("#s_unit_price").clone().removeClass('d-none')));
 			$row.append($("<td>").html($("#s_amount").clone().removeClass('d-none')));
 			// $row.append($("<td>").html("<span>"+$("#s_list_price").val()+"</span>"));

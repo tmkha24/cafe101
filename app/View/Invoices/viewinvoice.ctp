@@ -41,7 +41,7 @@
 								<?php echo __('香港新界粉嶺安樂村安全街33號豐盈工貿中心3樓N-0室') ?>
 								<br /><?php echo __('FLAT N-O, 3/F, GOOD HARVEST CENTRE, 33 ON CHUEN STREET,') ?>
 								<br /><?php echo __('ON LOK TSUEN, FANLING, HKSAR') ?>
-								<br /><?php echo __('TEL : 2676 3289; FAX : 2676 3299') ?>
+								<br /><?php echo __('TEL : 2676 3289; &nbsp FAX : 2676 3299') ?>
 							</div>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 										:
 									</td>
 									<td class="align-text-top">
-										<?php echo $invoice['Order']['number']; ?>
+										<?php if(count($order) > 0) echo $order[0]['Order']['number']; ?>
 									</td>
 								</tr>
 								<!-- salesperson from -->
@@ -195,8 +195,8 @@
 									<!-- currency -->
 									<tr>
 										<td class="border-0" colspan="5"></td>
-										<td class="p-0 border-0"><?php echo __('HK$') ?></td>
-										<td class="p-0 border-0"><?php echo __('HK$') ?></td>
+										<td class="p-0 border-0"><?php echo __($invoice['Invoice']['currency']) ?></td>
+										<td class="p-0 border-0"><?php echo __($invoice['Invoice']['currency']) ?></td>
 									</tr>
 									<!-- product -->
 									<?php
@@ -268,7 +268,7 @@
 					<div class="row">
 						<div class="col-8"></div>
 						<div class="col text-right">
-							<?php echo __('付款方式總額') ?> <?php echo __('(HK$)') ?> <?php echo number_format($invoice['Invoice']['grant_total'], 2, '.', ',') ?>
+							<?php echo __('付款方式總額') ?> <?php echo $invoice['Invoice']['currency'] ?> <?php echo number_format($invoice['Invoice']['grant_total'], 2, '.', ',') ?>
 						</div>
 					</div>
 
