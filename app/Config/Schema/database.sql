@@ -539,3 +539,4 @@ ALTER TABLE `invoices` ADD `salesperson_name` varchar(20) NULL;
 ALTER TABLE `invoices` ADD `invoice_createdby_name` varchar(100) NULL;
 
 ALTER TABLE `invoice_items` ADD `piece` varchar(50) NULL;
+ALTER TABLE `invoice_items` ADD `note` varchar(50) NULL;

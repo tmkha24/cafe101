@@ -76,14 +76,14 @@ class InvoicesController extends AppController
 			
 			$this->Invoice->create();
 
-			if (($invoices['same_as_billing_address']) ){
-				$invoices['shipping_company_name'] = $invoices['billing_company_name'];
-				$invoices['shipping_contact_name'] = $invoices['billing_contact_name'];
-				$invoices['shipping_contact_phone'] = $invoices['billing_contact_phone'];
-				$invoices['shipping_contact_email'] = $invoices['billing_contact_email'];
-				$invoices['shipping_address1'] = $invoices['billing_address1'];
-				$invoices['shipping_address2'] = $invoices['billing_address2'];
-			}
+			// if (($invoices['same_as_billing_address']) ){
+			// 	$invoices['shipping_company_name'] = $invoices['billing_company_name'];
+			// 	$invoices['shipping_contact_name'] = $invoices['billing_contact_name'];
+			// 	$invoices['shipping_contact_phone'] = $invoices['billing_contact_phone'];
+			// 	$invoices['shipping_contact_email'] = $invoices['billing_contact_email'];
+			// 	$invoices['shipping_address1'] = $invoices['billing_address1'];
+			// 	$invoices['shipping_address2'] = $invoices['billing_address2'];
+			// }
 
 
 			if ($this->Invoice->save($invoices)) {
@@ -136,14 +136,14 @@ class InvoicesController extends AppController
 			}
 			$invoices = $this->request->data['Invoice'];
 
-			if (($invoices['same_as_billing_address']) ){
-				$invoices['shipping_contact_name'] = $invoices['billing_contact_name'];
-				$invoices['shipping_contact_phone'] = $invoices['billing_contact_phone'];
-				$invoices['shipping_contact_fax'] = $invoices['billing_contact_fax'];
-				$invoices['shipping_contact_email'] = $invoices['billing_contact_email'];
-				$invoices['shipping_address1'] = $invoices['billing_address1'];
-				$invoices['shipping_address2'] = $invoices['billing_address2'];
-			}
+			// if (($invoices['same_as_billing_address']) ){
+			// 	$invoices['shipping_contact_name'] = $invoices['billing_contact_name'];
+			// 	$invoices['shipping_contact_phone'] = $invoices['billing_contact_phone'];
+			// 	$invoices['shipping_contact_fax'] = $invoices['billing_contact_fax'];
+			// 	$invoices['shipping_contact_email'] = $invoices['billing_contact_email'];
+			// 	$invoices['shipping_address1'] = $invoices['billing_address1'];
+			// 	$invoices['shipping_address2'] = $invoices['billing_address2'];
+			// }
 
 
 			if ($this->Invoice->save($invoices)) {
@@ -157,7 +157,7 @@ class InvoicesController extends AppController
 					}
 				}
 				$this->Session->setFlash(__('The invoice has been saved'), 'default', array("class" => "alert alert-success "));
-				$this->redirect(array('action' => 'view', $id));
+				$this->redirect(array('action' => 'viewinvoice', $id));
 			} else {
 				$this->Session->setFlash(__('The invoice could not be saved. Please, try again.'), 'default', array("class" => "alert alert-danger"));
 			}

@@ -98,60 +98,16 @@
 							<div class="form-group">
 								<?php echo $this->Form->input('invoice_createdby_name', array("class" => "form-control", "label" => __("Billing person"))); ?>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<?php echo $this->Form->input('description', array("class" => "form-control", "label" => __("Note"))); ?>
-							</div>
+							</div> -->
 						</fieldset>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-6">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="card-title"><?php echo __('Billing Address'); ?></h3>
-
-						<div class="card-tools">
-							<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-								<i class="fas fa-minus"></i></button>
-						</div>
-					</div>
-					<div class="card-body">
-						<fieldset>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_company_name', array("class" => "form-control", "label" => __("Company Name"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_contact_name', array("class" => "form-control", "label" => __("Contact Name"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_contact_phone', array("class" => "form-control", "label" => __("Contact Phone"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_contact_fax', array("class" => "form-control", "label" => __("Contact Fax"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_contact_email', array("class" => "form-control", "label" => __("Contact Email"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_address1', array("class" => "form-control", "label" => __("Address1"))); ?>
-							</div>
-							<div class="form-group">
-								<?php echo $this->Form->input('billing_address2', array("class" => "form-control", "label" => __("Address2"))); ?>
-							</div>
-							<br>
-							<br>
-							<div class="form-group">
-								<?php echo $this->Form->input('payment_information', array("class" => "form-control", "label" => __("Payment Information"))); ?>
-							</div>
-
-						</fieldset>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-6">
+			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title"><?php echo __('Shipping Address'); ?></h3>
@@ -176,24 +132,28 @@
 							<div class="form-group">
 								<?php echo $this->Form->input('shipping_contact_fax', array("class" => "form-control shipping_fax", "label" => __("Contact Fax"))); ?>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<?php echo $this->Form->input('shipping_contact_email', array("class" => "form-control shipping_address", "label" => __("Contact Email"))); ?>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<?php echo $this->Form->input('shipping_address1', array("class" => "form-control shipping_address", "label" => __("Address1"))); ?>
 							</div>
 							<div class="form-group">
 								<?php echo $this->Form->input('shipping_address2', array("class" => "form-control shipping_address", "label" => __("Address2"))); ?>
 							</div>
-							<div class="form-check">
+							<!-- <div class="form-check">
 								<input type="hidden" name="data[Invoice][same_as_billing_address]" id="Invoicesame_as_billing_address_" value="0">
 								<input type="checkbox" name="data[Invoice][same_as_billing_address]" class="form-check-input" id="Invoicesame_as_billing_address">
 								<label class="form-check-label" for="Invoicesame_as_billing_address"><?php echo  __('Same As Billing Address') ?></label>
+							</div>							 -->
+							<div class="form-group">
+								<?php echo $this->Form->input('payment_information', array("class" => "form-control", "label" => __("Payment Information"))); ?>
 							</div>
-							<br>
+
+							<!-- <br>
 							<div class="form-group">
 								<?php echo $this->Form->input('shipping_information', array("class" => "form-control", "label" => __("Shipping Information"))); ?>
-							</div>
+							</div> -->
 
 
 						</fieldset>
@@ -304,16 +264,16 @@
 										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>
 										<td><input name="data[Invoice][product_discount_percent]" data-type="currency" value="0" class="form-control" step="1" type="number" id="invoicediscountpercent"></td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<th><?php echo __('Discount Amount:'); ?></th>
 										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>
 										<td><input name="data[Invoice][discount_amount]" data-type="currency" value="0" class="form-control" step="1" type="number" id="invoicediscount"></td>
-									</tr>
-									<tr>
+									</tr> -->
+									<!-- <tr>
 										<th><?php echo __('Shipping Cost:'); ?></th>
 										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>
 										<td><input name="data[Invoice][shipping_cost]" value="0" class="form-control" step="1" type="number" id="invoiceshippingcost"></td>
-									</tr>
+									</tr> -->
 									<tr>
 										<th><?php echo __('Total:'); ?></th>
 										<td style="vertical-align: inherit"><span style="font-weight: bold;" class="symbol-currency"></span></td>

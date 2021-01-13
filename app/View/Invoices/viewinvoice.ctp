@@ -34,17 +34,14 @@
 						</div>
 						<div class="col-10 text-center">
 							<h2>
-								<?php echo __($invoice['Invoice']['billing_company_name']) ?>
-								<br/><?php echo __($invoice['Invoice']['billing_company_name2']) ?>
+								<?php echo __('華泰興食品有限公司') ?>
+								<br/><?php echo __('WAH TAI HING FOODS MANUFACTORY LIMITED') ?>
 							</h2>
-							<!-- <h2>
-								<?php echo __($invoice['Invoice']['billing_contact_name']) ?>
-							</h2> -->
 							<div>
-								<?php echo __($invoice['Invoice']['billing_address1']) ?>
-								<br /><?php echo __($invoice['Invoice']['billing_address2']) ?>
-								<br /><?php echo __($invoice['Invoice']['billing_address2']) ?>
-								<br /><?php echo __('TEL : '. $invoice['Invoice']['billing_contact_phone'] .'; FAX : ' . $invoice['Invoice']['billing_contact_fax']) ?>
+								<?php echo __('香港新界粉嶺安樂村安全街33號豐盈工貿中心3樓N-0室') ?>
+								<br /><?php echo __('FLAT N-O, 3/F, GOOD HARVEST CENTRE, 33 ON CHUEN STREET,') ?>
+								<br /><?php echo __('ON LOK TSUEN, FANLING, HKSAR') ?>
+								<br /><?php echo __('TEL : 2676 3289; FAX : 2676 3299') ?>
 							</div>
 						</div>
 					</div>
@@ -151,7 +148,7 @@
 										<?php echo $invoice['Order']['number']; ?>
 									</td>
 								</tr>
-								<!-- sold from -->
+								<!-- salesperson from -->
 								<tr>
 									<td class="align-text-top">
 										<?php echo __('推銷員') ?>
@@ -241,30 +238,27 @@
 								$invoiceItemSumarry = [];
 								$i = 0;
 								foreach($invoiceItems as $item) : ?>
-									<?php
-										$i = count($invoiceItemSumarry);
-										if(
-											$i > 0
-											&& $item['InvoiceItem']['product_id'] == $invoiceItemSumarry[$i-1]['Product']['product_id']
-										)
-										{
-											$invoiceItemSumarry[$i - 1]['Product']['qty'] += intval($item['InvoiceItem']['qty']);
-										}
-										else
-										{
-											array_push($invoiceItemSumarry, array('Product' => array(
-												'product_id' => $item['InvoiceItem']['product_id'],
-												'qty' => $item['InvoiceItem']['qty'],
-												'name' => $item['Product']['name'],
-												'note' => $item['InvoiceItem']['note'],
-												'expire_info' => $item['Product']['mfg_date'] . '-' .$item['Product']['expiry_date']
-											)));
-										}
-									?>
+								<?php
+									$i = count($invoiceItemSumarry);
+									if(
+										$i > 0
+										&& $item['InvoiceItem']['product_id'] == $invoiceItemSumarry[$i-1]['Product']['product_id']
+									)
+									{
+										$invoiceItemSumarry[$i - 1]['Product']['qty'] += intval($item['InvoiceItem']['qty']);
+									}
+									else
+									{
+										array_push($invoiceItemSumarry, array('Product' => array(
+											'product_id' => $item['InvoiceItem']['product_id'],
+											'qty' => $item['InvoiceItem']['qty'],
+											'name' => $item['Product']['name'],
+											'expire_info' => $item['Product']['mfg_date'] . '-' .$item['Product']['expiry_date']
+										)));
+									}
+								?>
 							<?php endforeach;?>
-							<?php
-								foreach($invoiceItemSumarry as $item):
-							?>
+							<?php foreach($invoiceItemSumarry as $item): ?>
 								<?php echo __($item['Product']['qty'] . '件-' . $item['Product']['name'] . ' ' . $item['Product']['expire_info'] . '  <br/>') ?>
 							<?php endforeach;?>
 						</div>
@@ -274,7 +268,7 @@
 					<div class="row">
 						<div class="col-8"></div>
 						<div class="col text-right">
-							<?php echo __('付款方式總額') ?> <?php echo __('(HK$)') ?> <?php echo __('61,885.44') ?>
+							<?php echo __('付款方式總額') ?> <?php echo __('(HK$)') ?> <?php echo number_format($invoice['Invoice']['grant_total'], 2, '.', ',') ?>
 						</div>
 					</div>
 
