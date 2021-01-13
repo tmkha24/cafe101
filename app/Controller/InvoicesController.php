@@ -90,6 +90,12 @@ class InvoicesController extends AppController
 			// 	$invoices['shipping_address2'] = $invoices['billing_address2'];
 			// }
 
+			$invoices['billing_company_name'] ='';
+			$invoices['billing_contact_name']='';
+			$invoices['billing_contact_phone']='';
+			$invoices['billing_contact_email']='';
+			$invoices['billing_address1']='';
+			$invoices['billing_address2']='';
 
 			if ($this->Invoice->save($invoices)) {
 
