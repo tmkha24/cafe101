@@ -78,7 +78,7 @@
 									<select name="data[Invoice][order_id]" class="form-control" id="InvoiceOrderId">
 										<option value="null"><?php echo __('Select Order of Invoice'); ?></option>
 										<?php foreach ($orders as $item) : ?>
-											<option <?php if ($invoice['Order']['id'] == $item['Invoice']['order_id']) {
+											<option <?php if ($item['Order']['id'] == $invoice['Invoice']['order_id']) {
 														echo "selected='selected'";
 													}  ?>" value="<?php echo $item['Order']['id'] ?>">
 												<?php echo $item['Order']['number'] . " - "  .  $item['Order']['currency'] . $item['Order']['grant_total'] ?>
