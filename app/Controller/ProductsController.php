@@ -157,6 +157,7 @@ class ProductsController extends AppController
 			$this->request->data = $this->Product->read(null, $id);
 			$this->set('product', $this->request->data);
 		}
+
 		$currentUser = $this->UserAuth->getUser();
 		$currentUserId = $currentUser['User']['id'];
 		$ownerId = $this->request->data['Product']['id'];

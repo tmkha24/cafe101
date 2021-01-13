@@ -37,7 +37,6 @@ class InvoicesController extends AppController
 		$invoiceItems = $this->InvoiceItem->find('all',array(
 			'conditions'=>array('invoice_id =' => $id)));
 		$this->set(compact( 'invoiceItems'));
-
 	}
 
 	/**
@@ -53,8 +52,10 @@ class InvoicesController extends AppController
 			throw new NotFoundException(__('Invalid invoice'));
 		}
 		$this->set('invoice', $this->Invoice->read(null, $id));
-		$invoiceItems = $this->InvoiceItem->find('all',array(
-			'conditions'=>array('invoice_id =' => $id)));
+		$invoiceItems = $this->InvoiceItem->find('all', array(
+			'conditions'=>array('invoice_id'=>$id),
+			'order'=> array('InvoiceItem.product_id')
+		));
 		$this->set(compact( 'invoiceItems'));
 	}
 
@@ -72,6 +73,7 @@ class InvoicesController extends AppController
 			if(isset($this->request->data['Invoice']['items'])){
 				$invoiceItems =  $this->request->data['Invoice']['items'];
 			}
+			
 			$this->Invoice->create();
 
 			if (($invoices['same_as_billing_address']) ){
@@ -90,7 +92,6 @@ class InvoicesController extends AppController
 					foreach ($invoiceItems as $key => $item){
 						$this->InvoiceItem->create();
 						$item['invoice_id'] =$this->Invoice->id;
-						$item['product_id'] = $key;
 						$this->InvoiceItem->save($item);
 					}
 				}
@@ -106,9 +107,9 @@ class InvoicesController extends AppController
 			$this->request->data['Invoice'][$model . '_id'] = $id;
 		}
 		$products = $this->Product->find('all');
-		$this->set(compact( 'products'));
 		$orders = $this->Order->find('all');
-		$this->set(compact( 'orders'));
+		$members = $this->Member->find('all');
+		$this->set(compact( 'orders', 'products', 'members'));
 	}
 
 	/**
@@ -138,11 +139,11 @@ class InvoicesController extends AppController
 			if (($invoices['same_as_billing_address']) ){
 				$invoices['shipping_contact_name'] = $invoices['billing_contact_name'];
 				$invoices['shipping_contact_phone'] = $invoices['billing_contact_phone'];
+				$invoices['shipping_contact_fax'] = $invoices['billing_contact_fax'];
 				$invoices['shipping_contact_email'] = $invoices['billing_contact_email'];
 				$invoices['shipping_address1'] = $invoices['billing_address1'];
 				$invoices['shipping_address2'] = $invoices['billing_address2'];
 			}
-
 
 
 			if ($this->Invoice->save($invoices)) {
@@ -151,7 +152,7 @@ class InvoicesController extends AppController
 					foreach ($invoiceItems as $key => $item){
 						$this->InvoiceItem->create();
 						$item['invoice_id'] =$this->Invoice->id;
-						$item['product_id'] = $key;
+						// $item['product_id'] = $key;
 						$this->InvoiceItem->save($item);
 					}
 				}
@@ -168,11 +169,14 @@ class InvoicesController extends AppController
 		$products = $this->Product->find('all');
 		$this->set(compact( 'products'));
 		$invoiceItems = $this->InvoiceItem->find('all',array(
-			'conditions'=>array('invoice_id =' => $id)));
+			'conditions'=>array('invoice_id =' => $id),
+			'order'=>array('InvoiceItem.product_id')
+		));
 		$this->set(compact( 'invoiceItems'));
-
 		$orders = $this->Order->find('all');
 		$this->set(compact( 'orders'));
+		$members = $this->Member->find('all');
+		$this->set(compact('members'));
 
 
 		$currentUser = $this->UserAuth->getUser();

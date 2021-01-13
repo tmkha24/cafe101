@@ -523,3 +523,19 @@ CREATE TABLE IF NOT EXISTS `invoice_items` (
 																					 PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
+
+ALTER TABLE `products` ADD `storage` int unsigned null;
+ALTER TABLE `products` ADD `specification` varchar(50) null;
+ALTER TABLE `products` ADD `mfg_date` varchar(20) null;
+ALTER TABLE `products` ADD `expiry_date` varchar(20) null;
+
+ALTER TABLE `invoices` ADD `billing_company_name2` varchar(255) NULL;
+ALTER TABLE `invoices` ADD `shipping_company_name2` varchar(255) NULL;
+ALTER TABLE `invoices` ADD `product_discount_percent` float NULL;
+ALTER TABLE `invoices` ADD `member_id` int unsigned NULL;
+ALTER TABLE `invoices` ADD `billing_contact_fax` varchar(20) NULL;
+ALTER TABLE `invoices` ADD `shipping_contact_fax` varchar(20) NULL;
+ALTER TABLE `invoices` ADD `salesperson_name` varchar(20) NULL;
+ALTER TABLE `invoices` ADD `invoice_createdby_name` varchar(100) NULL;
+
+ALTER TABLE `invoice_items` ADD `piece` varchar(50) NULL;

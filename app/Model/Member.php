@@ -22,24 +22,25 @@ class Member extends AppModel {
 			),
 		),
 	);
+	var $belongsTo = array('MemberGroup');
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	public $hasAndBelongsToMany = array(
-		'Notification' => array(
-			'className' => 'Notification',
-			'joinTable' => 'member_notifications',
-			'foreignKey' => 'member_id',
-			'associationForeignKey' => 'notification_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
+	// public $hasAndBelongsToMany = array(
+	// 	'Notification' => array(
+	// 		'className' => 'Notification',
+	// 		'joinTable' => 'member_notifications',
+	// 		'foreignKey' => 'member_id',
+	// 		'associationForeignKey' => 'notification_id',
+	// 		'unique' => 'keepExisting',
+	// 		'conditions' => '',
+	// 		'fields' => '',
+	// 		'order' => '',
+	// 		'limit' => '',
+	// 		'offset' => '',
+	// 		'finderQuery' => '',
+	// 		'deleteQuery' => '',
+	// 		'insertQuery' => ''
+	// 	)
+	// );
 }

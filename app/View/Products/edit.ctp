@@ -86,9 +86,33 @@ if (isset($this->request->data['Product'])){
 
 							<div class="form-group">
 								<?php echo $this->Form->input('brand', array("class"=>"form-control", "label"=>__("Brand"))); ?>
+							</div>							
+							<div class="form-group">
+								<label><?php echo __('Manufacturing Date');?> </label>
+								<div class="input-group date" id="reservationdate" data-target-input="nearest">
+									<input value="<?php echo $product['Product']['mfg_date']; ?>" type="text" name="data[Product][mfg_date]" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+									<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+										<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label><?php echo __('Expiration Date');?> </label>
+								<div class="input-group date" id="reservationdate" data-target-input="nearest">
+									<input value="<?php echo $product['Product']['expiry_date']; ?>" type="text" name="data[Product][expiry_date]" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+									<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+										<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('specification', array("class"=>"form-control", "label"=>__("Specification"))); ?>
 							</div>
 							<div class="form-group">
 								<?php echo $this->Form->input('Category', array("class"=>"form-control", "label"=>__("Category"))); ?>
+							</div>
+							<div class="form-group">
+								<?php echo $this->Form->input('storage', array("class"=>"form-control", "value"=> $product['Product']['storage'], "min" => 0, "type" => "number", "label"=>__("Storage"))); ?>
 							</div>
 							<div class="form-group">
 								<?php

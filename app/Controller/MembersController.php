@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
  */
 class MembersController extends AppController
 {
-	public $uses = array('WebConfig','Staff','Member','Supplier','Notification');
+	public $uses = array('WebConfig','Staff','Member','Supplier','Notification','MemberGroup');
 
 
 	/**
@@ -56,9 +56,9 @@ class MembersController extends AppController
 		foreach ($trparams as $model=>$id) {
 			$this->request->data['Member'][$model . '_id'] = $id;
 		}
-		$notifications = $this->Member->Notification->find('list');
-		$this->set(compact( 'notifications'));
-
+		$this->set('memberGroup', $this->MemberGroup->find('all'));
+		// $notifications = $this->Member->Notification->find('list');
+		// $this->set(compact('notifications'));
 	}
 
 	/**
@@ -89,8 +89,11 @@ class MembersController extends AppController
 			$this->set('member', $this->request->data);
 
 		}
-		$notifications = $this->Member->Notification->find('list');
-		$this->set(compact( 'notifications'));
+		// $notifications = $this->Member->Notification->find('list');
+		// $this->set(compact( 'notifications'));
+
+		
+		$this->set('memberGroup', $this->MemberGroup->find('all'));
 
 		$currentUser = $this->UserAuth->getUser();
 		$currentUserId = $currentUser['User']['id'];

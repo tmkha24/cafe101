@@ -43,6 +43,22 @@
 						</p>
 					</a>
 				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'members', 'action' => 'index')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-file-contract"></i>
+						<p>
+							<?php echo __('Members') ?>
+						</p>
+					</a>
+				</li>
+				<li class="nav-item has-treeview">
+					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'MemberGroups', 'action' => 'index')) ?>" class="nav-link">
+						<i class="nav-icon fas fa-file-contract"></i>
+						<p>
+							<?php echo __('Member Groups') ?>
+						</p>
+					</a>
+				</li>
 
 				<li class="nav-item has-treeview">
 					<a href="<?php echo  Router::url(array('plugin'=>'','controller' => 'vendors', 'action' => 'index')) ?>" class="nav-link">
