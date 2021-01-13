@@ -42,8 +42,8 @@
 									<th><?php echo __('Invoice Date');?></th>
 									<th><?php echo __('Ship To Name');?></th>
 									<th><?php echo __('Amount');?></th>
-									<th><?php echo __('Discount Amount');?></th>
-									<th><?php echo __('Shipping Cost');?></th>
+									<th><?php echo __('Discount Percent');?></th>
+									<!-- <th><?php echo __('Shipping Cost');?></th> -->
 									<th><?php echo __('Grand Total');?></th>
 									<th class="actions"><?php echo __('Actions');?></th>
 								</tr>
@@ -58,8 +58,8 @@
 										<td><?php echo h($invoice['Invoice']['created']); ?></td>
 										<td><?php echo h($invoice['Invoice']['shipping_contact_name']); ?></td>
 										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['amount']); ?></td>
-										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['discount_amount']); ?></td>
-										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['shipping_cost']); ?></td>
+										<td><?php echo h($invoice['Invoice']['product_discount_percent']); ?></td>
+										<!-- <td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['shipping_cost']); ?></td> -->
 										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['grant_total']); ?></td>
 										<td class="actions">
 											<?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-shopping-cart')).' '.__('Edit'), array('action' => 'edit', $invoice['Invoice']['id']), array('escape' => false)); ?>

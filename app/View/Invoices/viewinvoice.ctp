@@ -203,18 +203,18 @@
 										$i = 0;
 										foreach($invoiceItems as $item) : $i++?>
 									<tr>
-										<td class="p-1 border-0"><?php echo __($i) ?></td>
-										<td class="p-1 border-0">
+										<td class="p-1 pb-2 border-0"><?php echo __($i) ?></td>
+										<td class="p-1 pb-2 border-0">
 											<?php echo __($item['Product']['model']) ?>
 										</td>
-										<td class="p-1 border-0">
+										<td class="p-1 pb-1 border-0">
 											<?php echo __($item['Product']['name']) ?>
 											<br><?php echo __($item['Product']['specification']) ?>
 										</td>
-										<td class="p-1 border-0"><?php echo __($item['InvoiceItem']['note'] . ' ' . $item['InvoiceItem']['qty'])?></td>
-										<td class="p-1 border-0"><?php echo __($item['InvoiceItem']['piece']) ?></td>
-										<td class="p-1 border-0 text-right"><?php echo number_format($item['InvoiceItem']['unit_price'], 4, '.', ',') ?></td>
-										<td class="p-1 border-0 text-right"><?php echo number_format($item['InvoiceItem']['amount'], 2, '.', ',') ?></td>
+										<td class="p-1 pb-2 border-0"><?php echo __($item['InvoiceItem']['note'] . ' ' . $item['InvoiceItem']['qty'])?></td>
+										<td class="p-1 pb-2 border-0"><?php echo __($item['InvoiceItem']['piece']) ?></td>
+										<td class="p-1 pb-2 border-0 text-right"><?php echo number_format($item['InvoiceItem']['unit_price'], 4, '.', ',') ?></td>
+										<td class="p-1 pb-2 border-0 text-right"><?php echo number_format($item['InvoiceItem']['amount'], 2, '.', ',') ?></td>
 									</tr>									
 									<?php endforeach;?>
 
