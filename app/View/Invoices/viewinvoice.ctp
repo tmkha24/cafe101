@@ -81,7 +81,7 @@
 										:
 									</td>
 									<td class="align-text-top">
-										<?php echo __($invoice['Invoice']['billing_contact_name']) ?>
+										<?php echo __($invoice['Invoice']['shipping_contact_name']) ?>
 									</td>
 								</tr>
 								<!-- phone -->
@@ -93,7 +93,7 @@
 										:
 									</td>
 									<td class="align-text-top">
-										<?php echo __($invoice['Invoice']['billing_contact_phone']) ?>
+										<?php echo __($invoice['Invoice']['shipping_contact_phone']) ?>
 									</td>
 								</tr>
 								<!-- fax -->
@@ -105,7 +105,7 @@
 										:
 									</td>
 									<td class="align-text-top">
-										<?php echo __($invoice['Invoice']['billing_contact_fax']) ?>
+										<?php echo __($invoice['Invoice']['shipping_contact_fax']) ?>
 									</td>
 								</tr>
 							</table>
@@ -259,7 +259,13 @@
 								?>
 							<?php endforeach;?>
 							<?php foreach($invoiceItemSumarry as $item): ?>
-								<?php echo __($item['Product']['qty'] . '件-' . $item['Product']['name'] . ' ' . $item['Product']['expire_info'] . '  <br/>') ?>
+								<?php echo __(
+										$item['Product']['qty'] 
+										. '件-'
+										. $item['Product']['name']
+										. ' '
+										. ($item['Product']['expire_info'] == '-' ? "" : $item['Product']['expire_info'])
+										. '  <br/>') ?>
 							<?php endforeach;?>
 						</div>
 					</div>
