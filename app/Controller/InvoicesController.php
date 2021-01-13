@@ -96,6 +96,7 @@ class InvoicesController extends AppController
 			$invoices['billing_contact_email']='';
 			$invoices['billing_address1']='';
 			$invoices['billing_address2']='';
+			$invoices['shipping_contact_email']='';
 
 			if ($this->Invoice->save($invoices)) {
 
