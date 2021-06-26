@@ -41,11 +41,8 @@
 									<th><?php echo __('Invoice No');?></th>
 									<th><?php echo __('Invoice Date');?></th>
 									<th><?php echo __('Ship To Name');?></th>
-									<th><?php echo __('Amount');?></th>
-									<th><?php echo __('Discount Percent');?></th>
-									<!-- <th><?php echo __('Shipping Cost');?></th> -->
 									<th><?php echo __('Grand Total');?></th>
-									<th class="actions"><?php echo __('Actions');?></th>
+									<th><?php echo __('Status');?></th>
 								</tr>
 								</thead>
 								<tbody>
@@ -54,17 +51,21 @@
 								foreach ($invoices as $invoice): ?>
 									<tr>
 										<td><?php echo h($invoice['Invoice']['id']); ?></td>
-										<td><?php echo $this->Html->link(h($invoice['Invoice']['number']), array('action' => 'viewinvoice', $invoice['Invoice']['id'])); ?></td>
+										<td><?php echo $this->Html->link(h($invoice['Invoice']['number']), array('action' => 'view', $invoice['Invoice']['id'])); ?></td>
 										<td><?php echo h($invoice['Invoice']['created']); ?></td>
 										<td><?php echo h($invoice['Invoice']['shipping_contact_name']); ?></td>
-										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['amount']); ?></td>
-										<td><?php echo h($invoice['Invoice']['product_discount_percent']); ?></td>
-										<!-- <td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['shipping_cost']); ?></td> -->
 										<td><?php echo h($invoice['Invoice']['currency']);echo h($invoice['Invoice']['grant_total']); ?></td>
-										<td class="actions">
-											<?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-shopping-cart')).' '.__('Edit'), array('action' => 'edit', $invoice['Invoice']['id']), array('escape' => false)); ?>
-											<br>
-											<?php echo $this->Form->postLink($this->Html->tag('i', '', array('class' => 'fa fa-trash-alt')).' '.__('Delete'), array('action' => 'delete', $invoice['Invoice']['id']),  array('escape' => false), __('Are you sure you want to delete # %s?', $invoice['Invoice']['id'])); ?>
+										<td>
+											<?php
+												if($invoice['Invoice']['status'] == 1)
+												{
+													echo __('Approved');
+												}
+												else
+												{
+													echo __('Pending');
+												}
+											?>
 										</td>
 									</tr>
 								<?php endforeach; ?>

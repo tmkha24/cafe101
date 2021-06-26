@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS cafe101;
+
+use cafe101;
+
 
 
 CREATE TABLE IF NOT EXISTS `web_configs` (
@@ -8,16 +12,6 @@ CREATE TABLE IF NOT EXISTS `web_configs` (
 	 `modified` datetime DEFAULT NULL,
 	 PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-CREATE TABLE IF NOT EXISTS `text_translates` (
-	 `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	 `msgid` varchar(255) NOT NULL,
-	 `msgstr` varchar(255) DEFAULT NULL,
-	 `created` datetime DEFAULT NULL,
-	 `modified` datetime DEFAULT NULL,
-	 PRIMARY KEY (`id`)
-)ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `login_tokens` (
@@ -239,304 +233,49 @@ INSERT INTO `user_group_permissions` (`id`, `user_group_id`, `controller`, `acti
 (156, 3, 'Notifications', 'edit', 0),
 (157, 1, 'Notifications', 'delete', 1),
 (158, 2, 'Notifications', 'delete', 1),
-(159, 3, 'Notifications', 'delete', 0)
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS `contacts` (
-																			 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			 `name` varchar(100) NOT NULL,
-																			 `gender` tinyint(1) NOT NULL DEFAULT '1',
-																			 `phone` varchar(50)  NULL,
-																			 `email` varchar(100)  NULL,
-																			 `address1` varchar(255)  NULL,
-																			 `address2` varchar(255)  NULL,
-																			 `country` varchar(100)  NULL,
-																			 `region` varchar(100)  NULL,
-																			 `city` varchar(100)  NULL,
-																			 `ward` varchar(100)  NULL,
-																			 `description` text  NULL,
-																			 `active` tinyint(1) NOT NULL DEFAULT '1',
-																			 `created` DATETIME NOT NULL,
-																			 `updated` DATETIME NOT NULL,
-																			 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+(159, 3, 'Notifications', 'delete', 0);
 
 
 CREATE TABLE IF NOT EXISTS `products` (
-																				`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																				`name` varchar(100)  NOT NULL,
-																				`brand` varchar(50)  NULL,
-																				`model`  varchar(50)  NULL,
-																				`list_price` decimal  NULL,
-																				`unit_price` decimal  NULL,
-																				`tax_rate` decimal  NULL,
-																				`description` text COLLATE utf8_unicode_ci NULL,
-																				`currency`  varchar(100)  NULL,
-																				`image1` varchar(100)  NULL,
-																				`image2` varchar(100)  NULL,
-																				`image3` varchar(100)  NULL,
-																				`image4` varchar(100)  NULL,
-																				`image5` varchar(100)  NULL,
-																				`active` tinyint(1) NOT NULL DEFAULT '1',
-																				`created` DATETIME NOT NULL,
-																				`updated` DATETIME NOT NULL,
-																				PRIMARY KEY (`id`)
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(100)  NOT NULL,
+	`unit_price` decimal  NULL,
+	`description` text COLLATE utf8_unicode_ci NULL,
+	`image1` varchar(100)  NULL,
+	`image2` varchar(100)  NULL,
+	`image3` varchar(100)  NULL,
+	`image4` varchar(100)  NULL,
+	`image5` varchar(100)  NULL,
+	`active` tinyint(1) NOT NULL DEFAULT '1',
+	`created` DATETIME NOT NULL,
+	`updated` DATETIME NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
+
+
 CREATE TABLE IF NOT EXISTS `categories` (
-																					`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																					`name` varchar(100) NOT NULL,
-																					`description` text  NULL,
-																					`parent_id` int(11)  NULL,
-																					`active` tinyint(1) NOT NULL DEFAULT '1',
-																					`created` DATETIME NOT NULL,
-																					`updated` DATETIME NOT NULL,
-																					`lft` int(11) NOT NULL,
-																					`rght` int(11) NOT NULL,
-																					PRIMARY KEY (`id`)
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(100) NOT NULL,
+	`image` text null,
+	`description` text  NULL,
+	`parent_id` int(11)  NULL,
+	`active` tinyint(1) NOT NULL DEFAULT '1',
+	`created` DATETIME NOT NULL,
+	`updated` DATETIME NOT NULL,
+	`lft` int(11) NOT NULL,
+	`rght` int(11) NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `product_categories` (
-																									`id` int(11) unsigned NOT NULL auto_increment,
-																									`product_id` INT  NULL,
-																									`category_id` INT  NULL,
-																									`created` DATETIME DEFAULT NULL,
-																									`updated` DATETIME DEFAULT NULL,
-																									PRIMARY KEY  (`id`)
+	`id` int(11) unsigned NOT NULL auto_increment,
+	`product_id` INT  NULL,
+	`category_id` INT  NULL,
+	`created` DATETIME DEFAULT NULL,
+	`updated` DATETIME DEFAULT NULL,
+	PRIMARY KEY  (`id`)
 )ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
-
-
-CREATE TABLE IF NOT EXISTS `vendors` (
-																			 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			 `name` varchar(100)  NOT NULL,
-																			 `phone` varchar(50)  NULL,
-																			 `email` varchar(100)  NULL,
-																			 `address1` varchar(255)  NULL,
-																			 `address2` varchar(255)  NULL,
-																			 `country` varchar(100)  NULL,
-																			 `region` varchar(100)  NULL,
-																			 `city` varchar(100)  NULL,
-																			 `ward` varchar(100)  NULL,
-																			 `description` text COLLATE utf8_unicode_ci NULL,
-																			 `active` tinyint(1) NOT NULL DEFAULT '1',
-																			 `created` DATETIME NOT NULL,
-																			 `updated` DATETIME NOT NULL,
-																			 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS `quotes` (
-																				`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																				`name` varchar(100)  NOT NULL,
-																				`number` varchar(50)  NULL,
-																				`status` tinyint(1) NOT NULL DEFAULT '0',
-																				`date_expired`varchar(100)  NULL,
-																				`term_condition` text COLLATE utf8_unicode_ci NULL,
-																				`description` text COLLATE utf8_unicode_ci NULL,
-																				`currency`  varchar(100)  NULL,
-
-																				`from_company_name` varchar(50)  NULL,
-																				`from_contact_name` varchar(255)  NOT NULL,
-																				`from_contact_phone` varchar(255)   NOT NULL,
-																				`from_contact_email` varchar(255)   NOT NULL,
-																				`from_address1` varchar(255)  NULL,
-																				`from_address2` varchar(255)  NULL,
-
-																				`to_company_name` varchar(50)  NULL,
-																				`to_contact_name` varchar(255)  NOT NULL,
-																				`to_contact_phone` varchar(255)   NOT NULL,
-																				`to_contact_email` varchar(255)   NOT NULL,
-																				`to_address1` varchar(255)  NULL,
-																				`to_address2` varchar(255)  NULL,
-
-
-																				`amount`  decimal  NULL,
-																				`discount_amount`  decimal  NULL,
-																				`shipping_cost`  decimal  NULL,
-																				`tax_amount`  decimal  NULL,
-																				`grant_total`  decimal  NULL,
-
-																				`active` tinyint(1) NOT NULL DEFAULT '1',
-																				`created` DATETIME NOT NULL,
-																				`updated` DATETIME NOT NULL,
-																				PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-
-CREATE TABLE IF NOT EXISTS `quote_items` (
-																			`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			`quote_id` int(11) unsigned  NOT NULL,
-																			`product_id` int(11) unsigned  NOT NULL,
-
-																			`name` varchar(255)  NULL,
-																			`qty` int(11)  NULL,
-																			`tax_rate` decimal  NULL,
-																			`list_price` decimal  NULL,
-																			`unit_price` decimal  NULL,
-																			`amount` decimal  NULL,
-																			`created` DATETIME NOT NULL,
-																			`updated` DATETIME NOT NULL,
-																			PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS `orders` (
-																			`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			`number` varchar(50)  NULL,
-																			`quote_id` int(11) unsigned  NULL,
-
-																			`status` tinyint(10) NOT NULL DEFAULT '0',
-
-																			`billing_contact_id` int(11)   NOT NULL,
-																			`billing_company_name` varchar(255)  NOT NULL,
-																			`billing_contact_name` varchar(255)  NOT NULL,
-																			`billing_contact_phone` varchar(255)   NOT NULL,
-																			`billing_contact_email` varchar(255)   NOT NULL,
-
-																			`billing_address1` varchar(255)  NULL,
-																			`billing_address2` varchar(255)  NULL,
-
-																			`shipping_contact_id` int(11) unsigned   NULL,
-																			`shipping_company_name` varchar(255)  NOT NULL,
-																			`shipping_contact_name` varchar(255)  NOT NULL,
-																			`shipping_contact_phone` varchar(255)   NOT NULL,
-																			`shipping_contact_email` varchar(255)   NOT NULL,
-
-																			`shipping_address1` varchar(255)  NULL,
-																			`shipping_address2` varchar(255)  NULL,
-																			`same_as_billing_address` tinyint(1) NOT NULL DEFAULT '1',
-
-																			`payment_method` varchar(255)  NULL,
-																			`payment_information`text COLLATE utf8_unicode_ci NULL,
-																			`shipping_information` text COLLATE utf8_unicode_ci NULL,
-
-
-																			`description` text COLLATE utf8_unicode_ci NULL,
-																			`currency`  varchar(100)  NULL,
-																			`amount`  decimal  NULL,
-																			`discount_amount`  decimal  NULL,
-																			`shipping_cost`  decimal  NULL,
-																			`tax_amount`  decimal  NULL,
-																			`grant_total`  decimal  NULL,
-
-																			`active` tinyint(1) NOT NULL DEFAULT '1',
-																			`created` DATETIME NOT NULL,
-																			`updated` DATETIME NOT NULL,
-																			PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-CREATE TABLE IF NOT EXISTS `order_items` (
-																					 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																					 `order_id` int(11) unsigned  NOT NULL,
-																					 `product_id` int(11) unsigned  NOT NULL,
-
-																					 `name` varchar(255)  NULL,
-																					 `qty` int(11)  NULL,
-																					 `tax_rate` decimal  NULL,
-																					 `list_price` decimal  NULL,
-																					 `unit_price` decimal  NULL,
-																					 `amount` decimal  NULL,
-																					 `created` DATETIME NOT NULL,
-																					 `updated` DATETIME NOT NULL,
-																					 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS `invoices` (
-																			`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			`number` varchar(50)  NULL,
-																			`order_id` varchar(50)   NULL,
-
-																			`status` tinyint(10) NOT NULL DEFAULT '0',
-
-																			`billing_contact_id` int(11) unsigned  NOT NULL,
-																			`billing_company_name` varchar(255)  NOT NULL,
-																			`billing_contact_name` varchar(255)  NOT NULL,
-																			`billing_contact_phone` varchar(255)   NOT NULL,
-																			`billing_contact_email` varchar(255)   NOT NULL,
-
-																			`billing_address1` varchar(255)  NULL,
-																			`billing_address2` varchar(255)  NULL,
-
-																			`shipping_contact_id` int(11) unsigned   NULL,
-																			`shipping_company_name` varchar(255)  NOT NULL,
-																			`shipping_contact_name` varchar(255)  NOT NULL,
-																			`shipping_contact_phone` varchar(255)   NOT NULL,
-																			`shipping_contact_email` varchar(255)   NOT NULL,
-
-																			`shipping_address1` varchar(255)  NULL,
-																			`shipping_address2` varchar(255)  NULL,
-																			`same_as_billing_address` tinyint(1) NOT NULL DEFAULT '1',
-
-																			`payment_method` varchar(255)  NULL,
-																			`payment_information` text COLLATE utf8_unicode_ci NULL,
-																			`shipping_information` text COLLATE utf8_unicode_ci NULL,
-
-
-																			`description` text COLLATE utf8_unicode_ci NULL,
-																			`currency`  varchar(100)  NULL,
-																			`amount`  decimal  NULL,
-																			`discount_amount`  decimal  NULL,
-																			`shipping_cost`  decimal  NULL,
-																			`tax_amount`  decimal  NULL,
-																			`grant_total`  decimal  NULL,
-
-																			`active` tinyint(1) NOT NULL DEFAULT '1',
-																			`created` DATETIME NOT NULL,
-																			`updated` DATETIME NOT NULL,
-																			PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-CREATE TABLE IF NOT EXISTS `invoice_items` (
-																					 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																					 `invoice_id` int(11) unsigned  NOT NULL,
-																					 `product_id` int(11) unsigned  NOT NULL,
-
-																					 `name` varchar(255)  NULL,
-																					 `qty` int(11)  NULL,
-																					 `tax_rate` decimal  NULL,
-																					 `list_price` decimal  NULL,
-																					 `unit_price` decimal  NULL,
-																					 `amount` decimal  NULL,
-																					 `created` DATETIME NOT NULL,
-																					 `updated` DATETIME NOT NULL,
-																					 PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-ALTER TABLE `products` ADD `storage` int unsigned null;
-ALTER TABLE `products` ADD `specification` varchar(50) null;
-ALTER TABLE `products` ADD `mfg_date` varchar(20) null;
-ALTER TABLE `products` ADD `expiry_date` varchar(20) null;
-
-ALTER TABLE `invoices` ADD `billing_company_name2` varchar(255) NULL;
-ALTER TABLE `invoices` ADD `shipping_company_name2` varchar(255) NULL;
-ALTER TABLE `invoices` ADD `product_discount_percent` float NULL;
-ALTER TABLE `invoices` ADD `member_id` int unsigned NULL;
-ALTER TABLE `invoices` ADD `billing_contact_fax` varchar(20) NULL;
-ALTER TABLE `invoices` ADD `shipping_contact_fax` varchar(20) NULL;
-ALTER TABLE `invoices` ADD `salesperson_name` varchar(20) NULL;
-ALTER TABLE `invoices` ADD `invoice_createdby_name` varchar(100) NULL;
-
-ALTER TABLE `invoice_items` ADD `piece` varchar(50) NULL;
-ALTER TABLE `invoice_items` ADD `note` varchar(50) NULL;

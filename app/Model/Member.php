@@ -23,7 +23,7 @@ class Member extends AppModel {
 		),
 	);
 	var $belongsTo = array('MemberGroup');
-
+	var $hasOne = array('Invoice');
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	// public $hasAndBelongsToMany = array(

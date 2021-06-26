@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * Contact Model
  *
  */
-class Invoice extends AppModel {
+class ImportExport extends AppModel {
 	/**
 	 * Validation rules
 	 *
@@ -29,22 +29,8 @@ class Invoice extends AppModel {
 	);
 	
 	public $hasMany = array(
-		'InvoiceItem' => array(
-			'className' => 'InvoiceItem'
+		'ImportExportItem' => array(
+			'className' => 'ImportExportItem'
 		)
 	);
-
-	public $belongsTo = array(
-		'Order' => array(
-			'className' => 'Order',
-			'foreignKey' => 'order_id'
-		),
-		'Member' => array(
-			'className' => 'Member',
-			'foreignKey' => 'member_id'
-		)
-	);
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 }
